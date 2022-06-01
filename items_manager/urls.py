@@ -17,9 +17,14 @@ from django.contrib import admin
 from django.urls import path
 
 from user.views import GetUserToken, DeleteUserToken
+from item.views import ItemList, UserList
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+
     path('login/', GetUserToken.as_view()),
     path('logout/', DeleteUserToken.as_view()),
+
+    path('items/', ItemList.as_view()),
+    path('users/', UserList.as_view()),
 ]
