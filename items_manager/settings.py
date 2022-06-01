@@ -33,6 +33,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'items_manager',
     'user',
+    'item',
 
     'rest_framework',
     'rest_framework.authtoken',
