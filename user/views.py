@@ -37,4 +37,4 @@ class DeleteUserToken(generics.DestroyAPIView):
             token.delete()
             return Response({"detail": "Token Deleted Successfully"}, status=status.HTTP_200_OK)
         except Token.DoesNotExist:
-            return Response({"detail": "Token Not Provided"}, status=status.HTTP_401_UNAUTHORIZED)
+            return Response({"detail": "Authentication credentials were not provided."}, status=status.HTTP_401_UNAUTHORIZED)
