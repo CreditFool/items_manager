@@ -12,7 +12,7 @@ class Item(models.Model):
     )
 
     class Meta:
-        ordering = ('crfeated_at', 'name')
+        ordering = ('created_at', 'name')
 
     def __str__(self):
         return self.name
