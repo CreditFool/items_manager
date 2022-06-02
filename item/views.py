@@ -6,6 +6,7 @@ from rest_framework.response import Response
 
 from .models import Item
 from .serializers import ItemSerializer, UserSerializer
+from .permissions import IsOwnerOrReadOnly
 
 
 class ItemList(generics.ListCreateAPIView):
@@ -20,7 +21,9 @@ class ItemList(generics.ListCreateAPIView):
 class ItemDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Item.objects.all()
     serializer_class = ItemSerializer
-    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+    permission_classes = [
+        permissions.IsAuthenticatedOrReadOnly, IsOwnerOrReadOnly
+    ]
 
 
 class UserList(generics.ListAPIView):
