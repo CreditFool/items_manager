@@ -6,7 +6,13 @@ from rest_framework.views import Response
 from rest_framework.authtoken.models import Token
 from rest_framework.authtoken.views import ObtainAuthToken
 
-from .serializers import TokenSerializer
+from .serializers import TokenSerializer, UserSerializer
+
+
+class CreateUser(generics.CreateAPIView):
+    model = User
+    permission_classes = [permissions.AllowAny]
+    serializer_class = UserSerializer
 
 
 class GetUserToken(ObtainAuthToken):
