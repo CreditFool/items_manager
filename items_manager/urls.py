@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from user.views import GetUserToken, DeleteUserToken
+from user.views import GetUserToken, DeleteUserToken, CreateUser
 from item.views import ItemList, ItemDetail, UserList, UserDetail
 
 urlpatterns = [
@@ -30,4 +30,6 @@ urlpatterns = [
 
     path('api/items/<int:pk>/', ItemDetail.as_view()),
     path('api/users/<int:pk>/', UserDetail.as_view()),
+
+    path('api/register/', CreateUser.as_view()),
 ]
