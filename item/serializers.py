@@ -1,4 +1,3 @@
-from dataclasses import fields
 from rest_framework import serializers
 from django.contrib.auth.models import User
 from .models import Item
@@ -24,8 +23,8 @@ class ItemSerializer(serializers.ModelSerializer):
         return Item.objects.create(**validated_data)
     
     def update(self, instance, validated_data):
-        for field in fields(Item):
-            if field.name in validated_data:
-                setattr(instance, field.name, validated_data[field.name])
+        instance.name = validated_data.get('name', instance.name)
+        instance.description = validated_data.get('description', instance.description)
+        instance.price = validated_data.get('price', instance.price)
         instance.save()
         return instance
