@@ -324,7 +324,7 @@ Return example:
 ### (GET) api/users/
 
 ```text
-Mengambil data seluruh user terdaftar.
+Mengambil data seluruh user terdaftar dan id items yang mereka simpan.
 ```
 
 Example:
@@ -373,7 +373,7 @@ Mengambil data suatu user pada id tertentu.
 
 Example:
 
-```
+```url
 https://api-items-manager.herokuapp.com/api/users/1/
 ```
 
