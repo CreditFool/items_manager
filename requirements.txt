@@ -2,3 +2,4 @@ django
 django-heroku
 djangorestframework
 gunicorn
+whitenoise
